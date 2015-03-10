@@ -1,0 +1,21 @@
+<H1>
+  Search Results
+</H1>
+
+<UL>
+  <% @items.select do |item| %>
+    <% item.title == @submitted_title || %>
+    <% item.description == @submitted_description || %>
+    <% item.item_type == @submitted_item_type %>
+  <% end.each do |item| %>
+    <LI>
+        <B>Title:</B> <%= item.title %>
+      <BR />
+        <B>Description:</B> <%= item.description %>
+      <BR />
+        <B>Type:</B> <%= item.item_type %>
+      <BR />
+      <BR />
+    </LI>
+  <% end %>
+</UL>

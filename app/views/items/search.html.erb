@@ -1,0 +1,9 @@
+<%= form_tag results_path do %>
+    <%= label_tag :title %> <%= text_field_tag :title %>
+  <BR />
+    <%= label_tag :description %> <%= text_field_tag :description %>
+  <BR />
+    <%= label_tag :item_type %> <%= text_field_tag :item_type %>
+  <BR />
+    <%= submit_tag "Search" %>
+<% end %>
