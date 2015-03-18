@@ -4,16 +4,26 @@
 
 <UL>
   <% @items.select do |item| %>
-    <% item.title == @submitted_title || %>
-    <% item.description == @submitted_description || %>
-    <% item.item_type == @submitted_item_type %>
+    <% if(@operand == "AND") %>
+      <% item.type_id == @submitted_type_id && %>
+      <% item.title == @submitted_title || %>
+      <% item.description == @submitted_description || %>
+      <% item.owner == @submitted_owner %>
+    <% else %>
+      <% item.type_id == @submitted_type_id || %>
+      <% item.title == @submitted_title || %>
+      <% item.description == @submitted_description || %>
+      <% item.owner == @submitted_owner %>
+    <% end %>
   <% end.each do |item| %>
     <LI>
         <B>Title:</B> <%= item.title %>
       <BR />
         <B>Description:</B> <%= item.description %>
       <BR />
-        <B>Type:</B> <%= item.item_type %>
+        <B>Type:</B> <%= @types.find(item.type_id).title %>
+      <BR />
+        <B>Owner:</B> <%= item.owner %>
       <BR />
       <BR />
     </LI>

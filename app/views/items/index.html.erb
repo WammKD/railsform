@@ -5,7 +5,8 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Item type</th>
+      <th>Item Type</th>
+      <th>Owner</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +18,8 @@
       <tr>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
-        <td><%= item.item_type %></td>
+        <td><%= item.type_id %></td>
+	<td><%= item.owner %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

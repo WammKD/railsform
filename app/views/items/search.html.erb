@@ -1,9 +1,13 @@
 <%= form_tag results_path do %>
+    <%= select_tag(:type_id, options_for_select(@type_choices)) %>
+  <BR />
     <%= label_tag :title %> <%= text_field_tag :title %>
   <BR />
     <%= label_tag :description %> <%= text_field_tag :description %>
   <BR />
-    <%= label_tag :item_type %> <%= text_field_tag :item_type %>
+    <%= label_tag :owner %> <%= text_field_tag :owner %>
+  <BR />
+    <%= select_tag(:orand, options_for_select(@and_n_or)) %>
   <BR />
     <%= submit_tag "Search" %>
 <% end %>

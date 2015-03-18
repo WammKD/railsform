@@ -62,13 +62,19 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @type_choices = Type.all.map { |u| [u.title, u.id] }
+    @and_n_or = [["OR", "OR"],
+                 ["AND", "AND"]]
   end
 
   def search_results
+    @types = Type.all
     @items = Item.all
     @submitted_title = params[:title]
     @submitted_description = params[:description]
-    @submitted_item_type = params[:item_type]
+    @submitted_type_id = params[:type_id].to_i
+    @submitted_owner = params[:owner]
+    @operand = params[:orand]
   end
 
   private
@@ -79,6 +85,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:title, :description, :item_type)
+      params.require(:item).permit(:title, :description, :type_id, :owner)
     end
 end
